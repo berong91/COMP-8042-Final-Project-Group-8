@@ -8,4 +8,4 @@ file(GLOB Final_Project_SRC
         "source/*.cpp"
         )
 
-add_executable(Final_Project ${Final_Project_SRC})
+add_executable(Final_Project ${Final_Project_SRC} source/Helper.cpp source/Helper.h)

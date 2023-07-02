@@ -2,10 +2,15 @@
 // Created by duyph on 2023-04-26.
 //
 
-#ifndef COMP_8042_ADVANCED_ALGORITHMS_AND_DATA_STRUCTURES_DESIGN_AND_ANALYSIS_COMMANDPROCESSOR_H
-#define COMP_8042_ADVANCED_ALGORITHMS_AND_DATA_STRUCTURES_DESIGN_AND_ANALYSIS_COMMANDPROCESSOR_H
+#ifndef COMMANDPROCESSOR_H
+#define COMMANDPROCESSOR_H
 
-#include "string"
+#include "SystemManager.h"
+#include "Command.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
 
 using namespace std;
 
@@ -15,10 +20,15 @@ public:
 
     void run();
 
-private:
-    string getUserChoice();
 
-    void processUserChoice(const string &choice);
+private:
+    vector<string> splitInputArgs(const string &input, char delimiter);
+
+    pair<string, vector<string>> parseInput(const vector<string> &input);
+
+    pair<string, vector<string>> getUserChoice();
+
+    void processUserChoice(pair<string, vector<std::string>> choice);
 
     struct InputData {
         string dataPath;
@@ -26,18 +36,11 @@ private:
         string logPath;
     };
 
-    struct {
-        string wordChoice = "word";
-        string importChoice = "import";
-        string debugChoice = "debug";
-        string whatIsChoice = "what_is";
-        string whatIsInChoice = "what_is_in";
-        string whatIsAtChoice = "what_is_at";
-        string exitChoice = "quit";
-    } allUserChoice;
+    CommandUserChoice allUserChoice;
 
     string userChoice_;
     InputData inputdata_;
+    SystemManager GISSystem;
 };
 
-#endif //COMP_8042_ADVANCED_ALGORITHMS_AND_DATA_STRUCTURES_DESIGN_AND_ANALYSIS_COMMANDPROCESSOR_H
+#endif //COMMANDPROCESSOR_H
