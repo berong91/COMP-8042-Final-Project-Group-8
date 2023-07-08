@@ -69,6 +69,9 @@ void SystemManager::import(vector<string> vector) {
         string key = record.getHashKey();
         nameIndex[key] = curPosition;
 
+        // TODO: adding new records to the coordinate index
+        coordinateIndex.add(record, curPosition);
+
         // Write the record to the data file
         dataFile << line << endl;
 

@@ -5,6 +5,7 @@
 #ifndef SYSTEMMANAGER_H
 #define SYSTEMMANAGER_H
 
+#include "CoordinateIndex.h"
 #include <iostream>
 #include <cstdio>
 #include <unordered_map>
@@ -37,6 +38,7 @@ public:
 private:
     string _dataFilePath;
     unordered_map<string, long> nameIndex;
+    CoordinateIndex coordinateIndex;
 };
 
 

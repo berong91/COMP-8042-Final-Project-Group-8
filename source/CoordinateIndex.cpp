@@ -3,3 +3,7 @@
 //
 
 #include "CoordinateIndex.h"
+
+void CoordinateIndex::add(GISRecord record, long i) {
+
+}
